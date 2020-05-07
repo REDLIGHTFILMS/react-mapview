@@ -66,10 +66,6 @@ export default class Map extends Component {
         this.setState({markerClicked: true, markerDataActual: markerData});
     }
 
-    clickedOnSidbar = (markerDate) => {
-
-    }
-
     handleClose = () =>{
         this.setState({markerClicked: false});
     }
@@ -119,7 +115,7 @@ export default class Map extends Component {
                                     <Marker key={bank.id} latitude={bank.geometry.location.lat} longitude={bank.geometry.location.lng}>
                                         <button className="marker-btn"
                                         onClick={e => {
-                                            e.preventDefault();
+                                            //e.preventDefault();
                                             this.handleClick(bank)
                                         }}>
                                             <img src={markerBanks} alt={markerBanks}/>
@@ -139,6 +135,7 @@ export default class Map extends Component {
                                         </button>
                                     </Marker>
                                     )) : null}
+
                                     {this.state.markerValue === "doctor" || this.state.markerValue === "all" ? this.state.hospitals.data.results.map((hospital) => (
                                     <Marker key={hospital.id} latitude={hospital.geometry.location.lat} longitude={hospital.geometry.location.lng}>
                                         <button className="marker-btn"
